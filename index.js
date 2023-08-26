@@ -11,7 +11,7 @@ dotenv.config();
 
 
 // googleAuthRoutes(app);
-require('./routes/authRoutes')(app)
+require('./routes/authRoutes.router')(app)
 
 app.get('/', (req, res) => res.send('Hello there!'));
 const port = process.env.PORT || 5001;
