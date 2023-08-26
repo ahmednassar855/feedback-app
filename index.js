@@ -1,17 +1,18 @@
 const express = require('express');
 const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+const keys = require('./config/keys');
 require('./services/passport');
 
-// const googleAuthRoutes = require('./routes/authRoutes');
 
+mongoose.connect(keys.mongoURI);
 
 const app = express();
 dotenv.config();
 
 
 
-// googleAuthRoutes(app);
-require('./routes/authRoutes.router')(app)
+require('./routes/authRoutes')(app)
 
 app.get('/', (req, res) => res.send('Hello there!'));
 const port = process.env.PORT || 5001;
