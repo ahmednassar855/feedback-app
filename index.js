@@ -1,37 +1,17 @@
 const express = require('express');
 const dotenv = require('dotenv');
-// const passport = require('passport');
-// const GoogleStrategy = require('passport-google-oauth20').Strategy;
-// const keys = require('./config/keys');
+require('./services/passport');
 
-const googleAuthRoutes = require('./router/googleAuth.router')
+// const googleAuthRoutes = require('./routes/authRoutes');
 
 
 const app = express();
 dotenv.config();
 
 
-// passport.use(
-//     new GoogleStrategy(
-//         {
-//             clientID: keys.googleClientID,
-//             clientSecret: keys.googleClientSecret,
-//             callbackURL: '/auth/google/callback'
-//         }, (accessToken) => {
-//             console.log(accessToken);
-//         }
-//     )
-// );
 
-
-
-
-app.use(googleAuthRoutes);
-// app.get('/auth/google', passport.authenticate('google' , {
-//     scope: ['profile' ,'email']
-// }))
-
-// app.get('/auth/google/callback' , passport.authenticate('google'))
+// googleAuthRoutes(app);
+require('./routes/authRoutes')(app)
 
 app.get('/', (req, res) => res.send('Hello there!'));
 const port = process.env.PORT || 5001;
