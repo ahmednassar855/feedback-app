@@ -2,8 +2,9 @@ const express = require('express');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
+require('./models/User'); 
+// User model shall start before service passport as the user collection shall be completedebfore passport
 require('./services/passport');
-
 
 mongoose.connect(keys.mongoURI);
 
