@@ -1,16 +1,9 @@
+import React from 'react';
 
-import './App.css'
-
-function App() {
-
-
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="/auth/google">Sign in With Google</a>
-      </div>
-    </>
-  )
-}
+    <div>App</div>
+  );
+};
 
-export default App
+export default App;
