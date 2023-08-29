@@ -1,42 +1,36 @@
-import React from "react";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import Layout from "./layout/Layout";
-import Landing from "./components/landing/Landing";
+import React, { Component, useEffect } from "react";
+import { connect } from "react-redux";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import * as actions from "./actions";
 
-const Header = () => <h2>header</h2>;
+import Landing from "./components/landing/Landing";
+import Header from "./components/header/Header";
+
 const Dashboard = () => <h2>Dashboard</h2>;
 const SurveyNew = () => <h2>SurveyNew</h2>;
 
+class  App extends Component  {
+  componentDidMount(){
+    this.props.fetchUser();
+  }
+  
+  render(){
+    return (
+      <div>
+        <BrowserRouter>
+          <div>
+            <Header />
+            <Routes>
+              <Route path="/" element={<Landing />} />
+              <Route path="/surveys" element={<Dashboard />} />
+              <Route path="/surveys/new" element={<SurveyNew />} />
+            </Routes>
+          </div>
+        </BrowserRouter>
+      </div>
+    );
+  }
 
-const router = createBrowserRouter([
-  {
-    element: <Layout />,
-    children: [
-      {
-        path: "/",
-        element: <Landing />,
-      },
-      {
-        path: "/surveys",
-        element: <Dashboard />,
-      },
-      {
-        path: "/surveys/new",
-        element: <SurveyNew />,
-      },
-    ],
-  },
-]);
-
-const App = () => {
-  return (
-    <div>
-        <RouterProvider router={router} />
-    </div>
-  );
 };
 
-export default App;
+export default connect(null, actions)(App);
