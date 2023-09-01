@@ -17,5 +17,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <Provider store={store}>
       <App />
     </Provider>
-
 );
+console.log('env' , process.env.NODE_ENV);
+
+console.log('stripe key' , process.env.REACT_APP_STRIPE_KEY);
+
+
+

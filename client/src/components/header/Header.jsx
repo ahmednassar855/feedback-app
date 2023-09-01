@@ -18,8 +18,6 @@ class Header extends Component {
 
   render() {
     
-
-    console.log(this.props , 'sssssssssssssss');
     return (
       <div>
          <nav>
@@ -31,9 +29,9 @@ class Header extends Component {
             FeedBack Me
           </Link>
           <ul id="nav-mobile" className="right">
-            <li>
+            
               {this.renderContent()}
-            </li>
+            
           </ul>
         </div>
       </nav>

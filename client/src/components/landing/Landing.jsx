@@ -6,7 +6,7 @@ const Landing = () => {
       <div style={{ textAlign:'center' }}>
         <h1>Feedback</h1>
         collect feedback from your users
-      </div>
+      </div>    
     </>
   );
 };
