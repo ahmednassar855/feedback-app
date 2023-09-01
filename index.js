@@ -25,6 +25,8 @@ app.use(passport.session());
 
 
 require('./routes/authRoutes')(app)
+require('./routes/billingRoutes')(app)
+
 
 app.get('/', (req, res) => res.send('Hello there!'));
 const port = process.env.PORT || 5001;
