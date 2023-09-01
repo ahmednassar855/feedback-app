@@ -12,7 +12,7 @@ export class Payment extends Component {
   stKey = import.meta.env.VITE_REACT_APP_STRIPE_KEY;
 
   render() {
-    debugger;
+    // debugger;
 
     return (
       <StripeCheckout

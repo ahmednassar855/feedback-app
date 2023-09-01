@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport')
 const keys = require('./config/keys');
+const bodyparser = require('body-parser');
+
 
 require('./models/User'); 
 // User model shall start before service passport as the user collection shall be completedebfore passport
@@ -14,6 +16,7 @@ mongoose.connect(keys.mongoURI);
 const app = express();
 dotenv.config();
 
+app.use(bodyparser.json())
 app.use( 
     cookieSession({
         maxAge: 30 * 24 * 60 * 60 * 1000,
