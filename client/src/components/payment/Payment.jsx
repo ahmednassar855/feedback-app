@@ -9,12 +9,10 @@ export class Payment extends Component {
 
   stripeKey () {
     if(import.meta.env.MODE === 'development'){
-      console.log(import.meta.env.VITE_REACT_APP_STRIPE_KEY);
       return import.meta.env.VITE_REACT_APP_STRIPE_KEY;
     }
-    else{
-      console.log(process.env.STRIPE_PUBLISHABLE_KEY);
-      return process.env.STRIPE_PUBLISHABLE_KEY;
+    else{  
+      return import.meta.env.VITE_REACT_APP_STRIPE_KEY;
     }
   }
   render() {
