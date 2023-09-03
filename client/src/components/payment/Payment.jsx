@@ -7,9 +7,15 @@ import * as actions from '../../actions';
 export class Payment extends Component {
   
  
-  stKey = import.meta.env.VITE_REACT_APP_STRIPE_KEY;
+  stripeKeyfn () {
+    if(import.meta.env.MODE === 'development'){
+      return import.meta.env.VITE_REACT_APP_STRIPE_KEY;
+    }
+    else{
+      return process.env.STRIPE_PUBLISHABLE_KEY;
 
-
+    }
+  }
   render() {
     // debugger;
 
@@ -19,7 +25,7 @@ export class Payment extends Component {
         description="$5 for 5 email credits"
         amount={500}
         token={(token) => this.props.handleToken(token)}
-        stripeKey={this.stKey}
+        stripeKey={this.stripeKeyfn}
       >
         <button className="btn">
           Add Credit
