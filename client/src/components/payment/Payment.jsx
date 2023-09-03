@@ -5,11 +5,10 @@ import * as actions from '../../actions';
 
 
 export class Payment extends Component {
-  //   stripeKey() {
-  //     return import.meta.env.VITE_REACT_APP_STRIPE_KEY;
-  //   }
-
+  
+ 
   stKey = import.meta.env.VITE_REACT_APP_STRIPE_KEY;
+
 
   render() {
     // debugger;
@@ -32,3 +31,5 @@ export class Payment extends Component {
 }
 
 export default connect(null , actions)(Payment);
+
+

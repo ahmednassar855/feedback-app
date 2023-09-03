@@ -8,6 +8,7 @@ const bodyparser = require('body-parser');
 
 
 require('./models/User'); 
+require('./models/Suervey'); 
 // User model shall start before service passport as the user collection shall be completedebfore passport
 require('./services/passport');
 
@@ -29,6 +30,8 @@ app.use(passport.session());
 
 require('./routes/authRoutes')(app)
 require('./routes/billingRoutes')(app)
+require('./routes/surveyRoutes')(app)
+
 
 
 if( process.env.NODE_ENV === 'production' ) {
