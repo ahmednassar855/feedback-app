@@ -24,7 +24,7 @@ export class Payment extends Component {
         description="$5 for 5 email credits"
         amount={500}
         token={(token) => this.props.handleToken(token)}
-        stripeKey={this.stripeKey()}
+        stripeKey={() => this.stripeKey}
       >
         <button className="btn">
           Add Credit
